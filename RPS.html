@@ -3,71 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title> Rock, Paper, Scissors </title> 
+    <link rel="stylesheet" href="RPS.css"> 
 </head>
     
     <body>
-        <script>
-            function computerPlay() {
-                let options = ['rock', 'paper', 'scissors'];
-                choice = options[Math.floor(Math.random() * options.length)]
-                return choice 
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                if (playerSelection == 'rock' && computerSelection == 'paper') {
-                    result = "You Lose! Paper beats Rock!";
-                } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-                    result = "You Win! Paper beats Rock!";
-                } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-                    result = "You Win! Rock beats Scissors!";
-                } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-                    result = "You Lose! Rock beats Scissors!";
-                } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-                    result = "You Win! Scissors beats Paper";
-                } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-                    result = "You Lose! Scissors beats Paper";
-                } else {
-                    result = "You Tied!";
-                }
-                return result
-                
-            }
-
-            function game() {
-                playerScore = 0
-                computerScore = 0 
-                totalGames = 0
-                while (totalGames < 5) {
-                    playerSelection = prompt("Enter rock, paper, or scissors: ");
-                    playerSelection = playerSelection.toLowerCase(); 
-                    computerSelection = computerPlay()
-                    console.log(playRound(playerSelection, computerSelection))
-                    if (playRound(playerSelection, computerSelection) == "You Lose! Rock beats Scissors!" || playRound(playerSelection, computerSelection) == "You Lose! Paper beats Rock!" || playRound(playerSelection, computerSelection) == "You Lose! Scissors beats Paper") {
-                        computerScore += 1 
-                        totalGames += 1
-                        alert("You: " + playerScore + " Computer: " + computerScore);
-                    } else if (playRound(playerSelection, computerSelection) == "You Tied!") {
-                        alert("You: " + playerScore + " Computer: " + computerScore);
-                    } else {
-                        playerScore += 1
-                        totalGames += 1
-                        alert("You: " + playerScore + " Computer: " + computerScore)
-                    }   
-                }
-                if (playerScore > computerScore) {
-                    result = "You Won Best Out Of Five!";
-                } else {
-                    result = "You Lost Best Out Of Five!";
-                } 
-
-                return result 
+        
+        <div class="container">
+            <h1  id="userSection">You: </h1>
+                <span class="userScore">0</span> 
+                <div class="userOptions">
+                    <button type="button" class="userOption" id="rock">Rock</button>
+                    <button type="button" class="userOption" id="paper">Paper</button>
+                    <button type="button" class="userOption" id="scissors">Scissors</button>
+                </div>
             
-            }
+            <h2 id="computerSection">CPU: </h2>
+                <div class="computerScore">0</div>                                                                                                                                                                                                                                                                                                                   
+                <div class="computerOptions">
+                    <div class="computerOption" id="computerRock">Rock</div>
+                    <div class="computerOption" id="computerPaper">Paper</div>
+                    <div class="computerOption" id="computerScissors">Scissors</div>
+                </div>
+            <div type="box" class="result-container">
+                <div class="resultBox">Play Game!</div> 
+            </div>
             
-            alert("Open the console to start the game");
-            console.log("Type 'game()' and enter to play game");
+        </div>
             
-        </script>
-
+            
+            
+        
+        <script src='RPS.js'></script>
     </body>
 </html>
